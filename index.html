@@ -40,8 +40,8 @@
            <Table>
                <tr><th>Student</th><th>Information</th></tr>
                <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
-               <tr><td>Last Name:</td><td><input name="lastN" type="text"></td></tr>
-               <tr><td>CWID:</td><td><input name="cwid" type="text"></td></tr>
+               <tr><td>Last Name:</td><td><input name="lastN" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your last name." ></td></tr>
+               <tr><td>CWID:</td><td><input name="cwid" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your Campus Wide ID." ></td></tr>
                <tr><td>Gender:</td><td>
                    <select id="gender" name="gender">
                        <option value="0">Choose from the List</option>
@@ -67,24 +67,56 @@
                                <option value="mar">Marian Hall</option>
                            </select>
                        </td></tr>
-                       <tr><td>Preferences:</td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
+                       <tr><td>Preferences:<a class="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="Extra text to go here">?</a></td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
            </Table> 
         </form>
-        <a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a>
+        <!--<a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a>-->
         
         <script>
-       
-            function dormChoice(){
-                var year=document.getElementById("year");
-                var yearValue=year.options[year.selectedIndex].text;
-                var hall=document.getElementById("hall");
-                var hallValue=hall.options[hall.selectedIndex].text;
-                console.log(yearValue);
-                if (yearValue=="Freshman"){
-                     var hallValue=hall.options[hall.selectedIndex].text="Sheahan Hall";
+        $(function() {
+            $("#year").change(function(){
+                var selected= $("#year option:selected").text();
+                switch(selected){
+                    case "Sophomore":
+                        alert("You're a Sophomore");
+                        break;
+                    case "Freshman":
+                        alert("You' Freshman");
+                        break;
+                     case "Junior":
+                        alert("You're a Junior");
+                        break;
+                     case "Senior":
+                        alert("You're a Senior");
+                        break;
+             default: 
+        alert("default statement");
                 }
+            //   if (selected=="Sophomore"){
+            //       alert("you are a sophomore");
+            //   } else{
+            //         if (selected=="Choose from the List"){
+            //         alert(" you must select an option");
+            //         } else{
+            //         alert("you are not a sophmore");
+            //         }
+            //   }
+             
+            });
+            
+        });
+        
+            // function dormChoice(){
+            //     var year=document.getElementById("year");
+            //     var yearValue=year.options[year.selectedIndex].text;
+            //     var hall=document.getElementById("hall");
+            //     var hallValue=hall.options[hall.selectedIndex].text;
+            //     console.log(yearValue);
+            //     if (yearValue=="Freshman"){
+            //          var hallValue=hall.options[hall.selectedIndex].text="Sheahan Hall";
+            //     }
                
-            }
+            // }
         </script>
     </body>
     
