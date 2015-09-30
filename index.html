@@ -1,1 +1,92 @@
-hi
+ <!DOCTYPE html>
+<html>
+    
+    
+    <head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>   
+    </head>
+    
+    
+    <body>
+        <script>
+            $(function() {
+                $( ".show-option" ).tooltip({
+                  show: {
+                    effect: "slideDown",
+                    delay: 250
+                  }
+                });
+                $( "#hide-option" ).tooltip({
+                  hide: {
+                    effect: "explode",
+                    delay: 250
+                  }
+                });
+                $( "#open-event" ).tooltip({
+                  show: null,
+                  position: {
+                    my: "left top",
+                    at: "left bottom"
+                  },
+                  open: function( event, ui ) {
+                    ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+                  }
+                });
+              });
+        </script>
+        <form action="reserve.php" method="POST">
+           <Table>
+               <tr><th>Student</th><th>Information</th></tr>
+               <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
+               <tr><td>Last Name:</td><td><input name="lastN" type="text"></td></tr>
+               <tr><td>CWID:</td><td><input name="cwid" type="text"></td></tr>
+               <tr><td>Gender:</td><td>
+                   <select id="gender" name="gender">
+                       <option value="0">Choose from the List</option>
+                       <option value="1">Female</option>
+                       <option value="2">Male</option>
+                   </select>
+                       </td></tr>
+                       <tr><td>Year:</td><td>
+                           <select id="year" onchange="dormChoice()" name="year">
+                               <option value="0">Choose from the List</option>
+                               <option value="f">Freshman</option>
+                               <option value="so">Sophomore</option>
+                               <option value="j">Junior</option>
+                               <option value="se">Senior</option>
+                           </select>
+                       </td></tr>
+                        <tr><td>Desired Residence:</td><td>
+                           <select id="hall" onchange="dormChoice()" name="hall">
+                               <option value="choose">Choose from the List</option>
+                               <option value="she">Sheahan Hall</option>
+                               <option value="chmp">Champagnat Hall</option>
+                               <option value="leo">Leo Hall</option>
+                               <option value="mar">Marian Hall</option>
+                           </select>
+                       </td></tr>
+                       <tr><td>Preferences:</td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
+           </Table> 
+        </form>
+        <a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a>
+        
+        <script>
+       
+            function dormChoice(){
+                var year=document.getElementById("year");
+                var yearValue=year.options[year.selectedIndex].text;
+                var hall=document.getElementById("hall");
+                var hallValue=hall.options[hall.selectedIndex].text;
+                console.log(yearValue);
+                if (yearValue=="Freshman"){
+                     var hallValue=hall.options[hall.selectedIndex].text="Sheahan Hall";
+                }
+               
+            }
+        </script>
+    </body>
+    
+    
+</html>
