@@ -6,6 +6,45 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>   
+  
+  <style>
+    form{
+        border:thin solid;
+        border-color:darkgrey;
+        width:450px;
+        position: absolute;
+        left:50%;
+        margin-left:-225px;
+        z-indeX:2;
+        height:200px;
+    }
+    .circleProgress{
+        display:inline-block;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px; 
+        background-color:red;
+    }
+    .secondForm{
+          display:none;
+          position:absolute;
+          z-indeX:2;
+    }
+     .thirdForm{
+          display:none;
+          position:absolute;
+          z-indeX:2;
+    }
+    .progressHolder{
+          margin-top:200px;
+          position:absolute;
+          width:500px;
+          margin-left:-250px;
+          left:50%;
+          z-indeX:2;
+    }
+
+  </style>
     </head>
     
     
@@ -36,9 +75,9 @@
                 });
               });
         </script>
-        <form action="reserve.php" method="POST">
+        <form  class="firstForm" action="reserve.php" method="POST">
            <Table>
-               <tr><th>Student</th><th>Information</th></tr>
+               <tr><th>First</th><th>Information</th></tr>
                <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
                <tr><td>Last Name:</td><td><input name="lastN" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your last name." ></td></tr>
                <tr><td>CWID:</td><td><input name="cwid" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your Campus Wide ID." ></td></tr>
@@ -49,6 +88,12 @@
                        <option value="2">Male</option>
                    </select>
                        </td></tr>
+                       </Table> 
+        </form>
+        <form  class="secondForm" action="reserve.php" method="POST">
+           <Table>
+               <tr><th>Second</th><th>Information</th></tr>
+               
                        <tr><td>Year:</td><td>
                            <select id="year" onchange="dormChoice()" name="year">
                                <option value="0">Choose from the List</option>
@@ -61,48 +106,93 @@
                         <tr><td>Desired Residence:</td><td>
                            <select id="hall" onchange="dormChoice()" name="hall">
                                <option value="choose">Choose from the List</option>
-                               <option value="she">Sheahan Hall</option>
-                               <option value="chmp">Champagnat Hall</option>
-                               <option value="leo">Leo Hall</option>
-                               <option value="mar">Marian Hall</option>
+                               <option value="freshman" class="freshman">Champagnat Hall</option>
+                               <option value="freshman" class="freshman">Marian Hall</option>
+                               <option value="freshman" class="freshman">Sheahan Hall</option>
+                               <option value="freshman" class="freshman">Leo Hall</option>
+                               <option value="sophomores" class="sophomore">Lower New Townhouses</option>
+                               <option value="sophomores" class="sophomore">Upper New Townhouses</option>
+                               <option value="sophomores" class="sophomore">Foy Townhouses</option>
+                               <option value="sophomores" class="sophomore">Midrise Hall</option>
+                               <option value="sophomores" class="sophomore">Gartland Commons</option>
+                               <option value="juniors" class="senior-junior">Lower West Cedar St Townhouses (N-S)</option>
+                               <option value="juniors" class="senior-junior">Upper West Cedar St Townhouses (T-Y) </option>
+                               <option value="juniors" class="senior-junior">Fulton Street Townhouses</option>
+                               <option value="juniors" class="senior-junior">Talmadge Court</option>
+                               <option value="seniors" class="senior-junior">New Fulton Townhouses</option>
                            </select>
                        </td></tr>
+                    </Table> 
+        </form>
+        <form  class="thirdForm" action="reserve.php" method="POST">
+           <Table>
+               <tr><th>Third</th><th>Information</th></tr>
+               
                        <tr><td>Preferences:<a class="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="Extra text to go here">?</a></td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
            </Table> 
         </form>
+            <center>
+                <section id="menuSection">
+                    <div class="progressHolder">
+                     <hr>
+                        <figure class="circleProgress" id="circ1">1</figure>
+                        <figure class="circleProgress" id="circ2">2</figure>
+                        <figure class="circleProgress" id="circ3">3</figure>
+                    <hr>
+                    </div>
+                </section>
+            </center>
         <!--<a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a>-->
         
         <script>
         $(function() {
+            $("#circ1").click(function(){
+                $(".thirdForm").fadeOut("slow");
+                $(".firstForm").fadeIn("slow");
+                $(".secondForm").fadeOut("fast");
+            });
+             $("#circ2").click(function(){
+                $(".firstForm").fadeOut("slow");
+                $(".secondForm").fadeIn("slow");
+                $(".thirdForm").fadeOut("fast");
+            });
+             $("#circ3").click(function(){
+                $(".secondForm").fadeOut("slow");
+                $(".firstForm").fadeOut("fast");
+                $(".thirdForm").fadeIn("slow");
+            });
             $("#year").change(function(){
                 var selected= $("#year option:selected").text();
                 switch(selected){
-                    case "Sophomore":
-                        alert("You're a Sophomore");
+                        case "Sophomore":
+                            $(".freshman").hide();
+                            $(".sophomore").show();
+                            $(".senior-junior").hide();
                         break;
-                    case "Freshman":
-                        alert("You' Freshman");
+                        
+                        case "Freshman":
+                            $(".sophomore").hide();
+                            $(".senior-junior").hide();
+                            $(".freshman").show();
                         break;
-                     case "Junior":
-                        alert("You're a Junior");
+                        
+                        case "Junior":
+                            $(".senior-junior").show();
+                            $(".freshman").hide();
+                            $(".sophomore").hide();
                         break;
-                     case "Senior":
-                        alert("You're a Senior");
+                        
+                        case "Senior":
+                            $(".senior-junior").show();
+                            $(".freshman").hide();
+                            $(".sophomore").hide();
                         break;
-             default: 
-        alert("default statement");
-                }
-            //   if (selected=="Sophomore"){
-            //       alert("you are a sophomore");
-            //   } else{
-            //         if (selected=="Choose from the List"){
-            //         alert(" you must select an option");
-            //         } else{
-            //         alert("you are not a sophmore");
-            //         }
-            //   }
-             
+                        
+                        default: 
+                            alert("warning");
+                        }
             });
+            
             
         });
         
