@@ -55,7 +55,10 @@
           </style>
     </head>
     
-    <body>
+    <body onload="primaryLoad()">
+        <script>
+            
+        </script>
         
         <script>
             $(function() {
@@ -83,9 +86,8 @@
                 });
               });
         </script>
-        
-            <form  class="firstForm" action="reserve.php" method="POST">
-                <Table>
+            <form action="verify.php" method="POST">
+                <Table class="firstForm">
                 <tr><th>First</th><th>Information</th></tr>
                 <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
                 <tr><td>Last Name:</td><td><input name="lastN" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your last name." ></td></tr>
@@ -98,9 +100,8 @@
                 </select>
                 </td></tr>
                 </Table> 
-            </form>
-            <form  class="secondForm" action="reserve.php" method="POST">
-                <Table>
+            
+                <Table class="secondForm">
                 <tr><th>Second</th><th>Information</th></tr>
                 
                 <tr><td>Year:</td><td>
@@ -114,7 +115,7 @@
                 </td></tr>
                 <tr><td>Desired Residence:</td><td>
                     <select id="hall" name="hall">
-                        <option value="choose">Choose from the List</option>
+                        <option value="0">Choose from the List</option>
                         <option value="freshman" class="freshman">Champagnat Hall</option>
                         <option value="freshman" class="freshman">Marian Hall</option>
                         <option value="freshman" class="freshman">Sheahan Hall</option>
@@ -133,13 +134,13 @@
                 </td></tr>
                 <tr><Td colspan="2"><div id="imgBx"><img id="dynamicImages" src="#" alt="#"> </div></Td></tr>
                 </Table> 
-            </form>
             
-            <form  class="thirdForm" action="reserve.php" method="POST">
-                <Table>
+                <Table class="thirdForm">
                 <tr><th>Third</th><th>Information</th></tr>
                 <tr><td>Preferences:<a class="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="Extra text to go here">?</a></td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
+                <tr><td colspan="2"><input type="submit" value="Submit for Verification"></td></tr>
                 </Table> 
+                
             </form>
             <center>
                 <section id="menuSection">
@@ -240,6 +241,7 @@
                     $("#dynamicImages").attr("src", "https://www.marist.edu/housing/images/newfulton.jpg");
                      break;
                     default:
+                    $("#dynamicImages").attr("src", "#");
                     break;
                 }
             });
@@ -249,6 +251,8 @@
                 
                 switch(selected){
                         case "Sophomore":
+                            $('#hall').find('option:first').attr('selected', 'selected');
+                            $("#dynamicImages").attr("src", "#");
                             $(".freshman").hide();
                             $(".sophomore").show();
                             $(".senior-junior").hide();
@@ -256,18 +260,24 @@
                         break;
                         
                         case "Freshman":
+                             $('#hall').find('option:first').attr('selected', 'selected');
+                            $("#dynamicImages").attr("src", "#");
                             $(".sophomore").hide();
                             $(".senior-junior").hide();
                             $(".freshman").show();
                         break;
                         
                         case "Junior":
+                         $('#hall').find('option:first').attr('selected', 'selected');
+                            $("#dynamicImages").attr("src", "#");
                             $(".senior-junior").show();
                             $(".freshman").hide();
                             $(".sophomore").hide();
                         break;
                         
                         case "Senior":
+                            $('#hall').find('option:first').attr('selected', 'selected');
+                            $("#dynamicImages").attr("src", "#");
                             $(".senior-junior").show();
                             $(".freshman").hide();
                             $(".sophomore").hide();
