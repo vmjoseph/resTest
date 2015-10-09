@@ -55,10 +55,20 @@
           </style>
     </head>
     
-    <body onload="primaryLoad()">
-        <script>
-            
-        </script>
+
+    
+</html>
+<?php
+if(isset($_POST['submit'])) 
+{
+    ?>
+ 
+  <?php
+}
+else               
+{ ?>
+
+ <body onload="primaryLoad()">
         
         <script>
             $(function() {
@@ -86,7 +96,7 @@
                 });
               });
         </script>
-            <form action="" method="POST">
+            <form action="hello-world.php" method="POST">
                 <Table class="firstForm">
                 <tr><th>First</th><th>Information</th></tr>
                 <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
@@ -305,18 +315,8 @@
         </script>
 
     </body>
-    
-    
-</html>
+</script>
 <?php
-$nameFirst= $_POST["firstN"];
-$nameLast= $_POST["lastN"];
-
-if(isset($_POST["submit"])){
-   echo "<script>alert('you submitted!')</script>";
-  
-}else{
 
 }
-
 ?>

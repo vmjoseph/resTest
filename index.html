@@ -1,4 +1,3 @@
- <!DOCTYPE html>
 <html>
     <head>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -55,7 +54,7 @@
           </style>
     </head>
     
-    <body onload="primaryLoad()">
+    <body>
         <script>
             
         </script>
@@ -86,17 +85,17 @@
                 });
               });
         </script>
-            <form action="verify.php" method="POST">
+            <form action="validate.php" method="POST">
                 <Table class="firstForm">
                 <tr><th>First</th><th>Information</th></tr>
-                <tr><td>First Name:</td><td><input name="firstN" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
-                <tr><td>Last Name:</td><td><input name="lastN" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your last name." ></td></tr>
-                <tr><td>CWID:</td><td><input name="cwid" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your Campus Wide ID." ></td></tr>
+                <tr><td>First Name:</td><td><input name="firstN" id="first" class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your first name." ></td></tr>
+                <tr><td>Last Name:</td><td><input name="lastN"id="last" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your last name." ></td></tr>
+                <tr><td>CWID:</td><td><input name="cwid"id="cwid" type="text"class="show-option" type="text" href="http://jqueryui.com/demos/tooltip/#option-show" title="Enter your Campus Wide ID." ></td></tr>
                 <tr><td>Gender:</td><td>
                 <select id="gender" name="gender">
                 <option value="0">Choose from the List</option>
-                <option value="1">Female</option>
-                <option value="2">Male</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
                 </select>
                 </td></tr>
                 </Table> 
@@ -107,29 +106,29 @@
                 <tr><td>Year:</td><td>
                     <select id="year" name="year">
                         <option value="0">Choose from the List</option>
-                        <option value="f">Freshman</option>
-                        <option value="so">Sophomore</option>
-                        <option value="j">Junior</option>
-                        <option value="se">Senior</option>
+                        <option value="freshman">Freshman</option>
+                        <option value="sophomore">Sophomore</option>
+                        <option value="junior">Junior</option>
+                        <option value="senior">Senior</option>
                     </select>
                 </td></tr>
                 <tr><td>Desired Residence:</td><td>
                     <select id="hall" name="hall">
                         <option value="0">Choose from the List</option>
-                        <option value="freshman" class="freshman">Champagnat Hall</option>
-                        <option value="freshman" class="freshman">Marian Hall</option>
-                        <option value="freshman" class="freshman">Sheahan Hall</option>
-                        <option value="freshman" class="freshman">Leo Hall</option>
-                        <option value="sophomores" class="sophomore">Lower New Townhouses</option>
-                        <option value="sophomores" class="sophomore">Upper New Townhouses</option>
-                        <option value="sophomores" class="sophomore">Foy Townhouses</option>
-                        <option value="sophomores" class="sophomore">Midrise Hall</option>
-                        <option value="sophomores" class="sophomore">Gartland Commons</option>
-                        <option value="juniors" class="senior-junior">Lower West Cedar St Townhouses (N-S)</option>
-                        <option value="juniors" class="senior-junior">Upper West Cedar St Townhouses (T-Y) </option>
-                        <option value="juniors" class="senior-junior">Fulton Street Townhouses</option>
-                        <option value="juniors" class="senior-junior">Talmadge Court</option>
-                        <option value="seniors" class="senior-junior">New Fulton Townhouses</option>
+                        <option value="champagnat hall" class="freshman">Champagnat Hall</option>
+                        <option value="marian hall" class="freshman">Marian Hall</option>
+                        <option value="sheahan hall" class="freshman">Sheahan Hall</option>
+                        <option value="leo hall" class="freshman">Leo Hall</option>
+                        <option value="lower new townhouses" class="sophomore">Lower New Townhouses</option>
+                        <option value="upper new townhouses" class="sophomore">Upper New Townhouses</option>
+                        <option value="foy townhouses" class="sophomore">Foy Townhouses</option>
+                        <option value="midrise hall" class="sophomore">Midrise Hall</option>
+                        <option value="gartland commons" class="sophomore">Gartland Commons</option>
+                        <option value="lower west cedar" class="senior-junior">Lower West Cedar St Townhouses (N-S)</option>
+                        <option value="upper west cedar" class="senior-junior">Upper West Cedar St Townhouses (T-Y) </option>
+                        <option value="fulton street townhouses" class="senior-junior">Fulton Street Townhouses</option>
+                        <option value="talmadge court" class="senior-junior">Talmadge Court</option>
+                        <option value="new fulton townhouses" class="senior-junior">New Fulton Townhouses</option>
                     </select>
                 </td></tr>
                 <tr><Td colspan="2"><div id="imgBx"><img id="dynamicImages" src="#" alt="#"> </div></Td></tr>
@@ -137,7 +136,10 @@
             
                 <Table class="thirdForm">
                 <tr><th>Third</th><th>Information</th></tr>
-                <tr><td>Preferences:<a class="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="Extra text to go here">?</a></td><td><input type="checkbox">Laundry on Site</input><input type="checkbox">Special Needs</input><input type="checkbox">Kitchen</input></td></tr>
+                <tr><td>Preferences:<a class="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="Extra text to go here">?</a></td><td>
+                    <input name="laundry" id="laundry" type="checkbox">Laundry on Site</input>
+                    <input name="sNeeds" id="sNeeds" type="checkbox">Special Needs</input>
+                    <input name="kitchen" id="kitchen"type="checkbox">Kitchen</input></td></tr>
                 <tr><td colspan="2"><input type="submit" value="Submit for Verification"></td></tr>
                 </Table> 
                 
@@ -156,6 +158,16 @@
             </center>
         <!--<a id="show-option" href="http://jqueryui.com/demos/tooltip/#option-show" title="slide down on show">show</a>-->
         <script>
+        var nameFirst=document.getElementById("first").value.length;
+        var nameLast=document.getElementById("last").value.length;
+        var cwid=document.getElementById("cwid").value.length;
+        var gender=document.getElementById("gender").value;
+        var year=document.getElementById("year").value;
+        var hall =document.getElementById("hall").value;
+        var laundry=document.getElementById("laundry").value;
+        var kitchen=document.getElementById("kitchen").value;
+        var sServices=document.getElementById("sNeeds").value;
+        console.log(nameFirst);
         $(function() {
             $( "#progressbar" ).progressbar({
                       value: 33.3
@@ -164,30 +176,58 @@
                         $(this).css('cursor','pointer');
                     })
             $("#circ1").click(function(){
-               
+              
                 $(".thirdForm").fadeOut("slow");
                 $(".firstForm").fadeIn("slow");
                 $(".secondForm").fadeOut("fast");
                  $( "#progressbar" ).progressbar({
                       value: 33.3
                     });
-
             });
              $("#circ2").click(function(){
+         var nameFirst=document.getElementById("first").value.length;
+        var nameLast=document.getElementById("last").value.length;
+        var cwid=document.getElementById("cwid").value.length;
+        var gender=document.getElementById("gender").value;
+                  if(nameFirst==0||nameLast==0||cwid<8||gender==0){
+                    if(nameFirst==0){
+                       alert("You must enter a first name");
+                   } else if(nameLast==0){
+                       alert("You must enter a last name");
+                   }else if(cwid<8){
+                       alert("your cwid is not the appropriate length, make sure you are not using dashes");
+                   }else if(gender==0){
+                       alert("you must enter a gender");
+                   }
+               }else{
+        
                 $(".firstForm").fadeOut("slow");
                 $(".secondForm").fadeIn("slow");
                 $(".thirdForm").fadeOut("fast");
                 $( "#progressbar" ).progressbar({
                       value: 66.6
                     });
+               }
             });
              $("#circ3").click(function(){
+            var year=document.getElementById("year").value;
+            var hall =document.getElementById("hall").value;
+            
+            if(hall==0||year==0){
+             if(hall==0){
+            alert("You must select a hall");
+            }else if(year==0){
+            alert("You must select a year");
+            }
+            }else{
+           
                 $(".secondForm").fadeOut("slow");
                 $(".firstForm").fadeOut("fast");
                 $(".thirdForm").fadeIn("slow");
                  $( "#progressbar" ).progressbar({
                       value: 99.9
                     });
+            }
             });
             var selected= $("#year option:selected").text();
                 // if(selected=="Choose from the List"){
